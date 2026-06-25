@@ -1,0 +1,54 @@
+
+        /* Center the grid on the screen */
+      main {
+    display: flex;
+    align-items: center;       /* Centers vertically */
+    justify-content: center;   /* Centers horizontally */
+    margin: 0 ;
+    
+
+}
+header{
+ 
+     /* Just for visibility, change to whatever you like */
+    color: white;
+    text-align: center;
+    padding: 0;         /* Creates space INSIDE the header */
+    margin: 0;
+}
+body {
+    background-color: #f0f0f0;
+    margin: 0; 
+    text-align: center;
+    height: 100vh;   /* Takes up the full height of the screen */
+}
+        /* The parent grid container */
+        #container {
+            display: flex;
+            flex-wrap: wrap;
+            width: 500px;
+            height: 500px;
+            background-color: #ccc;
+
+            
+        }
+
+        /* The individual 16x16 square items */
+        .grid-item {
+            width: calc(100% / 16);  /* Calculates exactly 1/16th of the container width */
+            height: calc(100% / 16); /* Calculates exactly 1/16th of the container height */
+            box-sizing: border-box;  /* Ensures borders don't mess up the width math */
+            border: 1px solid #ddd;  /* Optional: Adds a faint border to see the squares */
+            background-color: #fff;
+            transition: background-color 0.2s ease;
+        }
+
+        /* Optional: adds visual interactive hover effect */
+        .grid-item:hover {
+            background-color: #333;
+        }
+
+
+        h1{
+            color: black;
+        }
