@@ -4,7 +4,7 @@
         const resetbutton = document.getElementById('reset-btn');
 
         let newsize;
-
+        
 
 function createdgrid(size){
 
@@ -18,11 +18,28 @@ gridcontainer.innerHTML='';
         for (let i = 0; i < totalSquares; i++) {
             const square = document.createElement('div');
             square.classList.add('grid-item');
-square.style.width=`calc(100% / ${size})`;
-square.style.height=`calc(100% / ${size})`;
-            square.addEventListener('mouseover', function(e){
-                e.target.style.backgroundColor= getRandomHexColor();
-            });
+            square.style.width=`calc(100% / ${size})`;
+            square.style.height=`calc(100% / ${size})`;
+           square.addEventListener('mouseover', (e) => {
+    // 1. Check this specific square's personal memory (defaults to 0)
+    let count = Number(e.target.dataset.count || 0);
+
+    if (count < 10) {
+        count++;
+        e.target.dataset.count = count; // Save the new number into the HTML
+    }
+ const r = Math.floor(Math.random() * 256);
+  const g = Math.floor(Math.random() * 256);
+  const b = Math.floor(Math.random() * 256);
+
+ /*e.target.style.backgroundColor = `rgba(${r}, ${g}, ${b}, ${count*0.1})`; 
+ console.log(count*0.1);*/
+    // 2. Apply pure black at (count * 10%) opacity
+     e.target.style.backgroundColor = `rgba(${r-r*count*10/100}, ${g-g*count*10/100}, ${b-b*count*10/100}, ${1})`;
+console.log(Math.round(r-r*count*10/100),Math.round(g-g*count*10/100) , Math.round(b-b*count*10/100));    
+console.log (r,g ,b) 
+});
+            
             gridcontainer.appendChild(square);
         }
     } 
@@ -43,4 +60,17 @@ if (newsize && newsize > 0 && newsize <= 100) {
 
     function getRandomHexColor() {
   return '#' + Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0');
+}
+
+function onhover(){
+    hovercount++;
+
+    const alpha = Map(hovercount, 0, 10, 0, 255, true);
+}
+
+function getRandomRgba() {
+  const r = Math.floor(Math.random() * 256);
+  const g = Math.floor(Math.random() * 256);
+  const b = Math.floor(Math.random() * 256);
+  return `rgb(${r}, ${g}, ${b},)`;
 }
