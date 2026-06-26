@@ -36,8 +36,6 @@ gridcontainer.innerHTML='';
  console.log(count*0.1);*/
     // 2. Apply pure black at (count * 10%) opacity
      e.target.style.backgroundColor = `rgba(${r-r*count*10/100}, ${g-g*count*10/100}, ${b-b*count*10/100}, ${1})`;
-console.log(Math.round(r-r*count*10/100),Math.round(g-g*count*10/100) , Math.round(b-b*count*10/100));    
-console.log (r,g ,b) 
 });
             
             gridcontainer.appendChild(square);

@@ -36,7 +36,7 @@ body {
             width: calc(100% / 16);  /* Calculates exactly 1/16th of the container width */
             height: calc(100% / 16); /* Calculates exactly 1/16th of the container height */
             box-sizing: border-box;  /* Ensures borders don't mess up the width math */
-            border: 1px solid #ddd;  /* Optional: Adds a faint border to see the squares */
+          /* Optional: Adds a faint border to see the squares */
             background-color: #fff;
             transition: background-color 0.2s ease;
         }
